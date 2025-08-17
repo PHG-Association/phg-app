@@ -40,7 +40,7 @@ function MedicalFloatingObject({
         scale: 0.8,
       }}
       animate={{
-        opacity: [0.4, 0.7, 0.4],
+        opacity: [0.6, 0.9, 0.6],
         y: [0, -60, 0],
         rotate: [rotate, rotate + 25, rotate],
         scale: [0.8, 1.1, 0.8],
@@ -54,10 +54,10 @@ function MedicalFloatingObject({
       }}
       className={cn("absolute pointer-events-none", className)}
       style={{
-        filter: "blur(0.5px)",
+        filter: "blur(0.2px)",
       }}
     >
-      <Icon className="text-pink-300/60 dark:text-blue-300/60" style={{ width: size, height: size }} />
+      <Icon className="text-blue-400/80 dark:text-blue-300/90" style={{ width: size, height: size }} />
     </motion.div>
   )
 }
@@ -129,7 +129,7 @@ function MicroscopeIcon({ className, style }: { className?: string; style?: any 
       <path d="M3 22h18" />
       <path d="M14 22a7 7 0 1 0 0-14h-1" />
       <path d="M9 14h.01" />
-      <path d="M9 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      <path d="M9 12a3 3 0 0 1-6 0 3 3 0 0 1 6 0Z" />
       <path d="M12 6 9 3 6 6" />
     </svg>
   )
@@ -191,7 +191,7 @@ function ContactForm() {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
-          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-black/10 backdrop-blur-sm border border-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400/50"
+          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-black/10 backdrop-blur-sm border border-white/10 text-slate-800 dark:text-white placeholder-slate-600 dark:placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400/50"
         />
       </div>
       <div>
@@ -201,7 +201,7 @@ function ContactForm() {
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
-          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-black/10 backdrop-blur-sm border border-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400/50"
+          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-black/10 backdrop-blur-sm border border-white/10 text-slate-800 dark:text-white placeholder-slate-600 dark:placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400/50"
         />
       </div>
       <div>
@@ -211,7 +211,7 @@ function ContactForm() {
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           required
-          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-black/10 backdrop-blur-sm border border-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400/50 resize-none"
+          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-black/10 backdrop-blur-sm border border-white/10 text-slate-800 dark:text-white placeholder-slate-600 dark:placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400/50 resize-none"
         />
       </div>
       <button
@@ -245,28 +245,26 @@ export default function HeroGeometric() {
   }
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900 dark:from-[#0B1220] dark:via-[#0A0F1A] dark:to-[#0B1220] light:from-[#F8FAFF] light:via-blue-50 light:to-pink-50">
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-transparent to-blue-500/10 blur-3xl" />
+    <div className="relative w-full overflow-hidden bg-gradient-to-br from-blue-50 via-[#F8FAFF] to-pink-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-pink-500/10 blur-3xl" />
 
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/5 dark:bg-black/10 border-b border-white/10 shadow">
         <div className="flex justify-between items-center py-2 px-8 max-w-6xl mx-auto">
           <div className="flex items-center gap-4">
             <Image src="/phg-logo.png" alt="PHG Logo" width={80} height={80} className="rounded-full" />
-            <span className="text-white dark:text-white light:text-slate-800 font-semibold text-2xl">
-              PHG Association
-            </span>
+            <span className="text-slate-800 dark:text-white font-semibold text-2xl">PHG Association</span>
           </div>
           <div className="flex items-center gap-8">
             <a
               href="#officers"
-              className="text-white/80 dark:text-white/80 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-slate-800 transition-colors flex items-center gap-2 text-lg"
+              className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors flex items-center gap-2 text-lg"
             >
               <Users className="w-5 h-5" />
               Officers
             </a>
             <a
               href="#contact"
-              className="text-white/80 dark:text-white/80 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-slate-800 transition-colors flex items-center gap-2 text-lg"
+              className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors flex items-center gap-2 text-lg"
             >
               <Mail className="w-5 h-5" />
               Contact Us
@@ -277,7 +275,6 @@ export default function HeroGeometric() {
       </nav>
 
       <div className="absolute inset-0 overflow-hidden">
-        {/* Hero Section Objects */}
         <motion.div style={{ y: y1 }}>
           <MedicalFloatingObject
             delay={0.1}
@@ -413,7 +410,6 @@ export default function HeroGeometric() {
           className="right-[65%] top-[15%]"
         />
 
-        {/* Additional Floating Objects */}
         <MedicalFloatingObject
           delay={1.7}
           icon={HeartbeatIcon}
@@ -479,7 +475,6 @@ export default function HeroGeometric() {
           className="right-[20%] top-[5%]"
         />
 
-        {/* Mission Section Objects */}
         <MedicalFloatingObject
           delay={2.5}
           icon={HeartbeatIcon}
@@ -521,7 +516,6 @@ export default function HeroGeometric() {
           className="left-[75%] top-[135%]"
         />
 
-        {/* Officers Section Objects */}
         <MedicalFloatingObject
           delay={3.0}
           icon={MicroscopeIcon}
@@ -571,7 +565,6 @@ export default function HeroGeometric() {
           className="right-[30%] top-[205%]"
         />
 
-        {/* Contact Section Objects */}
         <MedicalFloatingObject
           delay={3.6}
           icon={ThermometerIcon}
@@ -622,7 +615,6 @@ export default function HeroGeometric() {
         />
       </div>
 
-      {/* Hero Section */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 flex items-center justify-center min-h-screen pt-32">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -634,7 +626,7 @@ export default function HeroGeometric() {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80 dark:from-white dark:to-white/80 light:from-slate-800 light:to-slate-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-slate-500 to-slate-400 dark:from-slate-300 dark:to-slate-200">
                 GMU Pre-Health
               </span>
               <br />
@@ -658,7 +650,7 @@ export default function HeroGeometric() {
             whileHover={{ y: -5 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
-            <p className="text-base sm:text-lg md:text-xl text-white/70 dark:text-white/70 light:text-slate-600 mb-12 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl text-slate-400 dark:text-slate-300 mb-12 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4">
               Inspiring the next generation of healthcare leaders through guidance, connection, and impact.
             </p>
           </motion.div>
@@ -696,14 +688,12 @@ export default function HeroGeometric() {
             whileHover={{ scale: 1.02, rotateX: 5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-slate-800 mb-8">
-              Our Mission
-            </h2>
-            <div className="backdrop-blur-md bg-white/3 dark:bg-black/5 border border-white/10 p-8 md:p-12 rounded-2xl relative">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-8">Our Mission</h2>
+            <div className="backdrop-blur-md dark:bg-black/3 border border-white/10 dark:border-black/10 p-8 md:p-12 rounded-2xl relative bg-transparent opacity-100 shadow-2xl">
               <div className="absolute top-4 right-4 opacity-20">
-                <HeartbeatIcon className="w-16 h-16 text-pink-400" />
+                <HeartbeatIcon className="w-16 h-16 text-pink-400 dark:text-pink-300" />
               </div>
-              <p className="text-lg md:text-xl text-white/90 dark:text-white/90 light:text-slate-700 leading-relaxed">
+              <p className="text-lg md:text-xl text-slate-700 dark:text-white leading-relaxed">
                 We empower GMU's pre-health students with personalized guidance, hands-on volunteering, and meaningful
                 networking, building the skills, connections, and confidence to thrive in healthcare.
               </p>
@@ -721,9 +711,7 @@ export default function HeroGeometric() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-slate-800 mb-12">
-              Meet the Officers
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-12">Meet the Officers</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
@@ -764,7 +752,7 @@ export default function HeroGeometric() {
                     scale: 1.02,
                     backgroundColor: "rgba(255, 255, 255, 0.08)",
                   }}
-                  className="backdrop-blur-md bg-white/3 dark:bg-black/5 border border-white/10 p-6 rounded-xl hover:shadow-2xl transition-all duration-150"
+                  className="backdrop-blur-md bg-white/3 dark:bg-black/3 border border-white/10 dark:border-black/10 p-6 rounded-xl hover:shadow-2xl transition-all duration-150 shadow-2xl"
                 >
                   <div className="flex items-center gap-6">
                     <div className="w-24 h-24 flex-shrink-0">
@@ -777,13 +765,9 @@ export default function HeroGeometric() {
                       />
                     </div>
                     <div className="text-left flex-1">
-                      <h3 className="text-xl font-semibold text-white dark:text-white light:text-slate-800 mb-1">
-                        {officer.name}
-                      </h3>
-                      <p className="text-pink-400 font-medium mb-2">{officer.role}</p>
-                      <p className="text-white/70 dark:text-white/70 light:text-slate-600 text-sm">
-                        {officer.description}
-                      </p>
+                      <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-1">{officer.name}</h3>
+                      <p className="text-pink-400 dark:text-pink-300 font-medium mb-2">{officer.role}</p>
+                      <p className="text-slate-600 dark:text-white text-sm">{officer.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -803,35 +787,39 @@ export default function HeroGeometric() {
             whileHover={{ scale: 1.02 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-slate-800 mb-12">
-              Contact Us
-            </h2>
-            <div className="backdrop-blur-md bg-white/3 dark:bg-black/5 border border-white/10 p-8 rounded-2xl max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-12">Contact Us</h2>
+            <div className="backdrop-blur-md bg-white/3 dark:bg-black/3 border border-white/10 dark:border-black/10 p-8 rounded-2xl max-w-2xl mx-auto shadow-2xl">
               <ContactForm />
             </div>
           </motion.div>
         </div>
       </section>
 
-      <footer className="relative z-10 py-12 px-4 border-t border-white/10">
+      <footer className="relative z-10 py-12 px-4 border-t border-white/10 dark:border-black/10">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <Image src="/phg-logo.png" alt="PHG Logo" width={40} height={40} className="rounded-full" />
-              <span className="text-white/80 dark:text-white/80 light:text-slate-600">© 2025 PHG Association</span>
+              <span className="text-slate-600 dark:text-white">© 2025 PHG Association</span>
             </div>
             <div className="flex items-center gap-6">
-              <a href="#officers" className="text-white/60 hover:text-white/80 transition-colors">
+              <a
+                href="#officers"
+                className="text-slate-500 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors"
+              >
                 Officers
               </a>
-              <a href="#contact" className="text-white/60 hover:text-white/80 transition-colors">
+              <a
+                href="#contact"
+                className="text-slate-500 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors"
+              >
                 Contact
               </a>
               <a
                 href="https://www.instagram.com/phgassociation_mason/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 hover:text-pink-300 transition-colors"
+                className="text-pink-400 dark:text-pink-300 hover:text-pink-300 dark:hover:text-pink-400 transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -840,7 +828,7 @@ export default function HeroGeometric() {
         </div>
       </footer>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/40 dark:from-slate-950/80 dark:to-slate-950/40 light:from-blue-50/80 light:to-pink-50/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-pink-50/80 via-transparent to-blue-50/40 dark:from-pink-900/80 dark:via-transparent dark:to-blue-900/40 pointer-events-none" />
     </div>
   )
 }

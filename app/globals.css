@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* Light mode colors using the pink/blue palette */
     --background: 350 100% 85%; /* Pink background #FA9EBC */
     --foreground: 225 85% 20%; /* Dark blue text #0B1957 */
 
@@ -39,7 +40,7 @@
     --chart-4: 168 85 247;
     --chart-5: 239 68 68;
 
-    /* Updated medical theme colors for the new palette */
+    /* Medical theme colors for light mode */
     --medical-pink-light: 350 100% 85%; /* #FA9EBC */
     --medical-pink: 350 100% 80%;
     --medical-blue-light: 220 75% 70%; /* #5784E6 */
@@ -48,6 +49,7 @@
     --glass-border-light: 225 85% 20%;
   }
 
+  /* Added dark mode CSS variables with previous darker color scheme */
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -59,7 +61,7 @@
     --popover-foreground: 210 40% 98%;
 
     --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-foreground: 222.2 84% 4.9%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -77,9 +79,13 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
 
-    /* Dark mode medical colors */
-    --glass-bg-light: 0 0 0;
-    --glass-border-light: 255 255 255;
+    /* Dark mode medical theme colors */
+    --medical-pink-light: 350 100% 85%;
+    --medical-pink: 350 100% 80%;
+    --medical-blue-light: 220 75% 70%;
+    --medical-blue: 225 85% 20%;
+    --glass-bg-dark: 222.2 84% 4.9%;
+    --glass-border-dark: 217.2 32.6% 17.5%;
   }
 }
 
@@ -98,13 +104,13 @@
   }
 }
 
-/* Add smooth transition for theme changes with sophisticated easing */
+/* Enhanced transitions with cubic-bezier easing for smooth theme changes */
 * {
-  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-color
-    0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.4s cubic-bezier(0.25, 0.4, 0.25, 1), color 0.4s cubic-bezier(0.25, 0.4, 0.25, 1),
+    border-color 0.4s cubic-bezier(0.25, 0.4, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.4, 0.25, 1);
 }
 
-/* Simplified glassmorphism utilities without @apply to avoid CSS parsing issues */
+/* Enhanced glassmorphism utilities with dark mode support */
 .glass-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
@@ -113,8 +119,10 @@
 }
 
 .dark .glass-card {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 .glass-card-light {
@@ -122,6 +130,13 @@
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.dark .glass-card-light {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
 }
 
 /* Smooth scroll behavior */
