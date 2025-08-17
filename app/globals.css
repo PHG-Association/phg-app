@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 350 100% 85%; /* Pink background #FA9EBC */
+    --foreground: 225 85% 20%; /* Dark blue text #0B1957 */
+
+    --card: 350 100% 85%;
+    --card-foreground: 225 85% 20%;
+
+    --popover: 350 100% 85%;
+    --popover-foreground: 225 85% 20%;
+
+    --primary: 225 85% 20%; /* Dark blue #0B1957 */
+    --primary-foreground: 350 100% 85%;
+
+    --secondary: 244 100% 90%; /* Light purple #F4D1FF */
+    --secondary-foreground: 225 85% 20%;
+
+    --muted: 244 100% 90%;
+    --muted-foreground: 225 60% 40%;
+
+    --accent: 244 100% 90%;
+    --accent-foreground: 225 85% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+    --chart-1: 12 76 138;
+    --chart-2: 22 163 74;
+    --chart-3: 234 179 8;
+    --chart-4: 168 85 247;
+    --chart-5: 239 68 68;
+
+    /* Updated medical theme colors for the new palette */
+    --medical-pink-light: 350 100% 85%; /* #FA9EBC */
+    --medical-pink: 350 100% 80%;
+    --medical-blue-light: 220 75% 70%; /* #5784E6 */
+    --medical-blue: 225 85% 20%; /* #0B1957 */
+    --glass-bg-light: 350 100% 85%;
+    --glass-border-light: 225 85% 20%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Dark mode medical colors */
+    --glass-bg-light: 0 0 0;
+    --glass-border-light: 255 255 255;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* Add smooth transition for theme changes with sophisticated easing */
+* {
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-color
+    0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Simplified glassmorphism utilities without @apply to avoid CSS parsing issues */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.dark .glass-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
