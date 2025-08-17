@@ -233,15 +233,10 @@ export default function HeroGeometric() {
 
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
+    visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 1,
-        delay: 0.5 + i * 0.2,
-        ease: [0.25, 0.4, 0.25, 1],
-      },
-    }),
+    },
   }
 
   return (
@@ -618,12 +613,15 @@ export default function HeroGeometric() {
       <div className="relative z-10 container mx-auto px-4 md:px-6 flex items-center justify-center min-h-screen pt-32">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            custom={1}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            transition={{ 
+              duration: 1,
+              delay: 0.5 + 1 * 0.2,
+              ease: "easeOut"
+            }}
           >
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-slate-500 to-slate-400 dark:from-slate-300 dark:to-slate-200">
@@ -643,12 +641,15 @@ export default function HeroGeometric() {
           </motion.div>
 
           <motion.div
-            custom={2}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ y: -5 }}
-            transition={{ type: "spring", stiffness: 400 }}
+            transition={{ 
+              duration: 1,
+              delay: 0.5 + 2 * 0.2,
+              ease: "easeOut"
+            }}
           >
             <p className="text-base sm:text-lg md:text-xl text-slate-400 dark:text-slate-300 mb-12 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4">
               Inspiring the next generation of healthcare leaders through guidance, connection, and impact.
@@ -656,12 +657,15 @@ export default function HeroGeometric() {
           </motion.div>
 
           <motion.div
-            custom={3}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            transition={{ 
+              duration: 1,
+              delay: 0.5 + 3 * 0.2,
+              ease: "easeOut"
+            }}
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <a
