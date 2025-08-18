@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { ThemeProvider } from "@/components/theme-provider"
+import { getImagePath } from "@/lib/utils"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     description: "Guidance • Volunteering • Networking for GMU pre-health students.",
     url: "https://prehealthguidance.vercel.app/",
     siteName: "PHG at GMU",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "PHG Logo" }],
+    images: [{ url: getImagePath("/og.png"), width: 1200, height: 630, alt: "PHG Logo" }],
     type: "website",
     locale: "en_US",
   },
@@ -24,11 +25,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GMU Pre-Health Guidance Association",
     description: "Guidance • Volunteering • Networking for GMU pre-health students.",
-    images: ["/og.png"],
+    images: [getImagePath("/og.png")],
   },
   icons: {
-    icon: "/phg-logo.png",
-    apple: "/apple-touch-icon.png",
+    icon: getImagePath("/phg-logo.png"),
+    apple: getImagePath("/apple-touch-icon.png"),
   },
 }
 
