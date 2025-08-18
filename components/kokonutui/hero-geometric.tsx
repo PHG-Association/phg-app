@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import { Instagram, Mail, Users, Send } from "lucide-react"
 import { useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { getImagePath } from "@/lib/utils"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -246,7 +247,7 @@ export default function HeroGeometric() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/5 dark:bg-black/10 border-b border-white/10 shadow">
         <div className="flex justify-between items-center py-2 px-8 max-w-6xl mx-auto">
           <div className="flex items-center gap-4">
-            <Image src="/phg-logo.png" alt="PHG Logo" width={80} height={80} className="rounded-full" />
+            <Image src={getImagePath("/phg-logo.png")} alt="PHG Logo" width={80} height={80} className="rounded-full" />
             <span className="text-slate-800 dark:text-white font-semibold text-2xl">PHG Association</span>
           </div>
           <div className="flex items-center gap-8">
@@ -723,27 +724,27 @@ export default function HeroGeometric() {
                   role: "Co-President",
                   description:
                     "Hi! I'm Tania, a junior at George Mason University majoring in Biology. I'm hoping to become a doctor one day and specialize in dermatology. A big dream of mine is to open my own practice and then grow it from there. In my free time, you'll usually find me at a coffee shop, hanging out with people I love, or reading up on different medical diseases just because I love to expand my knowledge.",
-                  image: "/tania.png",
+                  image: getImagePath("/tania.png"),
                 },
                 {
                   name: "Kiran Abbas",
                   role: "Co-President",
                   description:
                     "Hi! I'm Kiran, a junior at George Mason University majoring in Biology. My goal is to become a doctor and specialize in dermatology. One day I would want to open my own practice. I love cooking, spending time with family and friends, going on hikes, and volunteering whenever I can to give back to my community.",
-                  image: "/kiran.png",
+                  image: getImagePath("/kiran.png"),
                 },
                 {
                   name: "Ali Mohsin",
                   role: "Chief Technology Officer",
                   description: "I'm Ali. I cooked up this site in Next.js.",
-                  image: "/ali.png",
+                  image: getImagePath("/ali.png"),
                 },
                 {
                   name: "Zahra Ibrahimkhil",
                   role: "Treasurer",
                   description:
                     "Hi! I'm Zahra, and I'm majoring in Public and Community Health with plans to go to dental school. I love spending time with my family, checking out new spots, and love my cat.",
-                  image: "/zahra.png",
+                  image: getImagePath("/zahra.png"),
                 },
               ].map((officer, index) => (
                 <motion.div
@@ -761,7 +762,7 @@ export default function HeroGeometric() {
                   <div className="flex items-center gap-6">
                     <div className="w-24 h-24 flex-shrink-0">
                       <Image
-                        src={officer.image || "/placeholder.svg"}
+                        src={officer.image || getImagePath("/placeholder.svg")}
                         alt={officer.name}
                         width={96}
                         height={96}
@@ -803,7 +804,7 @@ export default function HeroGeometric() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <Image src="/phg-logo.png" alt="PHG Logo" width={40} height={40} className="rounded-full" />
+              <Image src={getImagePath("/phg-logo.png")} alt="PHG Logo" width={40} height={40} className="rounded-full" />
               <span className="text-slate-600 dark:text-white">© 2025 PHG Association</span>
             </div>
             <div className="flex items-center gap-6">
