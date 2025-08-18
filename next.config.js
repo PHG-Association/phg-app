@@ -6,6 +6,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
     basePath: isProd ? '/phg-app' : '',
+    assetPrefix: isProd ? '/phg-app/' : '',
     output: 'export',
     distDir: 'dist',
     images: {
