@@ -7,10 +7,10 @@ import { Pacifico } from "next/font/google"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Instagram, Mail, Users, Send } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { getImagePath } from "@/lib/utils"
-import Spline from '@splinetool/react-spline/next';
+import Spline from '@splinetool/react-spline';
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -225,6 +225,30 @@ function ContactForm() {
       </button>
     </form>
   )
+}
+
+function SplineWrapper({ scene, style, onLoad }: { scene: string, style?: React.CSSProperties, onLoad?: () => void }) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <div style={style} className="flex items-center justify-center bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-2xl">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-400"></div>
+      </div>
+    );
+  }
+
+  return (
+    <Spline
+      scene={scene}
+      style={style}
+      onLoad={onLoad}
+    />
+  );
 }
 
 export default function HeroGeometric() {
@@ -691,7 +715,7 @@ export default function HeroGeometric() {
                   </div>
                 )}
                 
-                <Spline
+                <SplineWrapper
                   scene="https://prod.spline.design/IwVD7qlH0N6grbs7/scene.splinecode"
                   style={{ 
                     width: '100%', 
