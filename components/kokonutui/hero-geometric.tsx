@@ -21,7 +21,7 @@ const pacifico = Pacifico({
 function MedicalFloatingObject({
   className,
   delay = 0,
-  icon: Icon,
+  icon: Icon, 
   size = 96,
   rotate = 0,
   duration = 30,
@@ -625,12 +625,12 @@ export default function HeroGeometric() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 flex items-center justify-center min-h-screen pt-32">
-        <div className="max-w-6xl mx-auto">
-          {/* Change from text-center to grid layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto"> {/* Increased from max-w-6xl to max-w-7xl */}
+          {/* Adjust grid gap and column proportions */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 items-center"> {/* Changed proportions and reduced gap */}
             
             {/* Left side - Text content */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left pr-0 lg:pr-8"> {/* Added right padding on desktop */}
               <motion.div
                 variants={fadeUpVariants}
                 initial="hidden"
@@ -642,7 +642,7 @@ export default function HeroGeometric() {
                   ease: "easeOut"
                 }}
               >
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight leading-tight"> {/* Adjusted responsive sizing and added leading-tight */}
                   <span className="bg-clip-text text-transparent bg-gradient-to-b from-slate-500 to-slate-400 dark:from-slate-300 dark:to-slate-200">
                     GMU Pre-Health
                   </span>
@@ -670,7 +670,7 @@ export default function HeroGeometric() {
                   ease: "easeOut"
                 }}
               >
-                <p className="text-base sm:text-lg md:text-xl text-slate-400 dark:text-slate-300 mb-12 leading-relaxed font-light tracking-wide">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 dark:text-slate-300 mb-12 leading-relaxed font-light tracking-wide"> {/* Adjusted responsive sizing */}
                   Inspiring the next generation of healthcare leaders through guidance, connection, and impact.
                 </p>
               </motion.div>
