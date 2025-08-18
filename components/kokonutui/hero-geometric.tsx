@@ -10,6 +10,7 @@ import { Instagram, Mail, Users, Send } from "lucide-react"
 import { useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { getImagePath } from "@/lib/utils"
+import Spline from '@splinetool/react-spline/next';
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -239,6 +240,8 @@ export default function HeroGeometric() {
       y: 0,
     },
   }
+
+  const [splineLoading, setSplineLoading] = useState(true);
 
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-br from-blue-50 via-[#F8FAFF] to-pink-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -598,74 +601,109 @@ export default function HeroGeometric() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 flex items-center justify-center min-h-screen pt-32">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            whileHover={{ scale: 1.02 }}
-            transition={{ 
-              duration: 1,
-              delay: 0.5 + 1 * 0.2,
-              ease: "easeOut"
-            }}
-          >
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-slate-500 to-slate-400 dark:from-slate-300 dark:to-slate-200">
-                GMU Pre-Health
-              </span>
-              <br />
-              <span
-                className={cn(
-                  "bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400",
-                  "drop-shadow-[0_0_20px_rgba(248,168,200,0.3)]",
-                  pacifico.className,
-                )}
+        <div className="max-w-6xl mx-auto">
+          {/* Change from text-center to grid layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Left side - Text content */}
+            <div className="text-center lg:text-left">
+              <motion.div
+                variants={fadeUpVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover={{ scale: 1.02 }}
+                transition={{ 
+                  duration: 1,
+                  delay: 0.5 + 1 * 0.2,
+                  ease: "easeOut"
+                }}
               >
-                Guidance Association
-              </span>
-            </h1>
-          </motion.div>
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-b from-slate-500 to-slate-400 dark:from-slate-300 dark:to-slate-200">
+                    GMU Pre-Health
+                  </span>
+                  <br />
+                  <span
+                    className={cn(
+                      "bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400",
+                      "drop-shadow-[0_0_20px_rgba(248,168,200,0.3)]",
+                      pacifico.className,
+                    )}
+                  >
+                    Guidance Association
+                  </span>
+                </h1>
+              </motion.div>
 
-          <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            whileHover={{ y: -5 }}
-            transition={{ 
-              duration: 1,
-              delay: 0.5 + 2 * 0.2,
-              ease: "easeOut"
-            }}
-          >
-            <p className="text-base sm:text-lg md:text-xl text-slate-400 dark:text-slate-300 mb-12 leading-relaxed font-light tracking-wide max-w-3xl mx-auto px-4">
-              Inspiring the next generation of healthcare leaders through guidance, connection, and impact.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            whileHover={{ scale: 1.05 }}
-            transition={{ 
-              duration: 1,
-              delay: 0.5 + 3 * 0.2,
-              ease: "easeOut"
-            }}
-          >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <a
-                href="https://www.instagram.com/phgassociation_mason/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white font-medium hover:from-pink-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              <motion.div
+                variants={fadeUpVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover={{ y: -5 }}
+                transition={{ 
+                  duration: 1,
+                  delay: 0.5 + 2 * 0.2,
+                  ease: "easeOut"
+                }}
               >
-                <Instagram className="w-5 h-5" />
-                Follow for Updates
-              </a>
+                <p className="text-base sm:text-lg md:text-xl text-slate-400 dark:text-slate-300 mb-12 leading-relaxed font-light tracking-wide">
+                  Inspiring the next generation of healthcare leaders through guidance, connection, and impact.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={fadeUpVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover={{ scale: 1.05 }}
+                transition={{ 
+                  duration: 1,
+                  delay: 0.5 + 3 * 0.2,
+                  ease: "easeOut"
+                }}
+              >
+                <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-16">
+                  <a
+                    href="https://www.instagram.com/phgassociation_mason/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white font-medium hover:from-pink-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    <Instagram className="w-5 h-5" />
+                    Follow for Updates
+                  </a>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+
+            {/* Right side - Spline design */}
+            <div className="relative order-first lg:order-last">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2, delay: 0.3 }}
+                className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden"
+              >
+                {/* Loading state */}
+                {splineLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-2xl z-10">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-400"></div>
+                  </div>
+                )}
+                
+                <Spline
+                  scene="https://prod.spline.design/IwVD7qlH0N6grbs7/scene.splinecode"
+                  style={{ 
+                    width: '100%', 
+                    height: '100%',
+                    borderRadius: '1rem'
+                  }}
+                  onLoad={() => setSplineLoading(false)}
+                />
+              </motion.div>
+            </div>
+
+          </div>
         </div>
       </div>
 
