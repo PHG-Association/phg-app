@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Pacifico } from "next/font/google"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { Instagram, Mail, Users, Send, Images } from "lucide-react"
+import { Instagram, Mail, Users, Send } from "lucide-react"
 import { useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { getImagePath } from "@/lib/utils"
@@ -251,13 +251,6 @@ export default function HeroGeometric() {
             <span className="text-slate-800 dark:text-white font-semibold text-2xl">PHG Association</span>
           </div>
           <div className="flex items-center gap-8">
-            <a
-              href="/gallery"
-              className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors flex items-center gap-2 text-lg"
-            >
-              <Images className="w-5 h-5" />
-              Gallery
-            </a>
             <ThemeToggle />
           </div>
         </div>
