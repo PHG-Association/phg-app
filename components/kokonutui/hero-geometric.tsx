@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Pacifico } from "next/font/google"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { Instagram, Mail, Users, Send } from "lucide-react"
-import { useState } from "react"
+import { Instagram, Mail, Users, Send, ChevronDown, Target } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { getImagePath } from "@/lib/utils"
 
@@ -226,6 +226,73 @@ function ContactForm() {
   )
 }
 
+function NavigationDropdown() {
+  const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  const menuItems = [
+    {
+      label: "Our Mission",
+      href: "#mission",
+      icon: <Target className="w-5 h-5" />
+    },
+    {
+      label: "Officers", 
+      href: "#officers",
+      icon: <Users className="w-5 h-5" />
+    },
+    {
+      label: "Contact Us",
+      href: "#contact", 
+      icon: <Mail className="w-5 h-5" />
+    }
+  ]
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors flex items-center gap-2 text-lg"
+      >
+        Menu
+        <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-48 backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 dark:border-black/30 rounded-lg shadow-xl z-50">
+          <div className="py-2">
+            {menuItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-3 px-4 py-3 text-slate-700 dark:text-slate-200 hover:bg-white/10 dark:hover:bg-black/20 hover:text-slate-900 dark:hover:text-white transition-colors"
+              >
+                {item.icon}
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function HeroGeometric() {
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 1000], [0, -150])
@@ -251,20 +318,7 @@ export default function HeroGeometric() {
             <span className="text-slate-800 dark:text-white font-semibold text-2xl">PHG Association</span>
           </div>
           <div className="flex items-center gap-8">
-            <a
-              href="#officers"
-              className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors flex items-center gap-2 text-lg"
-            >
-              <Users className="w-5 h-5" />
-              Officers
-            </a>
-            <a
-              href="#contact"
-              className="text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white transition-colors flex items-center gap-2 text-lg"
-            >
-              <Mail className="w-5 h-5" />
-              Contact Us
-            </a>
+            <NavigationDropdown />
             <ThemeToggle />
           </div>
         </div>

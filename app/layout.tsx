@@ -7,7 +7,7 @@ import { getImagePath } from "@/lib/utils"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://prehealthguidance.vercel.app"),
+  metadataBase: new URL("https://phg-association.github.io/phg-app/"),
   title: "GMU Pre-Health Guidance Association",
   description:
     "Empowering George Mason University pre-health students with guidance, volunteering, and networking opportunities.",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GMU Pre-Health Guidance Association",
     description: "Guidance • Volunteering • Networking for GMU pre-health students.",
-    url: "https://prehealthguidance.vercel.app/",
+    url: "https://phg-association.github.io/phg-app/",
     siteName: "PHG at GMU",
     images: [{ url: getImagePath("/og.png"), width: 1200, height: 630, alt: "PHG Logo" }],
     type: "website",
