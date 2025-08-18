@@ -9,6 +9,7 @@ const nextConfig = {
     assetPrefix: isProd ? '/phg-app/' : '',
     output: 'export',
     distDir: 'dist',
+    trailingSlash: true,  // Add this line
     images: {
         unoptimized: true,
     },
