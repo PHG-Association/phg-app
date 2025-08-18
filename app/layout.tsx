@@ -28,7 +28,10 @@ export const metadata: Metadata = {
     images: [getImagePath("/og.png")],
   },
   icons: {
-    icon: getImagePath("/phg-logo.png"),
+    icon: [
+      { url: getImagePath("/favicon.ico") },
+      { url: getImagePath("/phg-logo.png"), type: "image/png" },
+    ],
     apple: getImagePath("/apple-touch-icon.png"),
   },
 }
